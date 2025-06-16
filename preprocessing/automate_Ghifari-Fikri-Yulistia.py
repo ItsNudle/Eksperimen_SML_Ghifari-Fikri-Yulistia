@@ -37,7 +37,7 @@ def process_text_data(df):
     return x_sequences, y, X_tfidf, tokenizer, vectorizer
 
 if __name__ == "__main__":
-    input_path = "spam ham emails_raw/spam ham emails.csv"
+    input_path = "spam_ham_emails_raw/spam_ham_emails.csv"
     output_path = "preprocessing/spam ham emails_preprocessing/"
     os.makedirs(output_path, exist_ok=True)
 
