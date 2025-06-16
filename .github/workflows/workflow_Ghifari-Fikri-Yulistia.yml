@@ -37,3 +37,11 @@ jobs:
         with:
           name: preprocessed-data
           path: preprocessing/spam_ham_emails_preprocessing/
+
+      - name: Commit and push preprocessing output
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add preprocessing/spam_ham_emails_preprocessing/
+          git commit -m "Add preprocessing output from workflow"
+          git push
