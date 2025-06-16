@@ -38,7 +38,7 @@ def process_text_data(df):
 
 if __name__ == "__main__":
     input_path = "spam_ham_emails_raw/spam_ham_emails.csv"
-    output_path = "preprocessing/spam ham emails_preprocessing/"
+    output_path = "preprocessing/spam_ham_emails_preprocessing/"
     os.makedirs(output_path, exist_ok=True)
 
     df = pd.read_csv(input_path)
