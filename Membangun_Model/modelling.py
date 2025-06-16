@@ -16,21 +16,16 @@ import mlflow.sklearn
 from dagshub import dagshub_logger
 import dagshub
 
-# Inisialisasi ke DagsHub (pastikan token sudah diset)
-dagshub.init(repo_owner='ghifari.fikri.yulistia', repo_name='my-first-repo', mlflow=True)
+dagshub.init(repo_owner='ghifari.fikri.yulistia', repo_name='Eksperimen_SML_Ghifari-Fikri-Yulistia', mlflow=True)
 
-# Set eksperimen
 mlflow.set_experiment("spam_classifier_experiment")
 
-# Aktifkan autolog
 mlflow.sklearn.autolog()
 
-# Load data
-X = pd.read_csv("tfidf.csv")
-y = pd.read_csv("labels.csv")["label"]
+X = pd.read_csv("spam_ham_emails_preprocessing/tfidf.csv")
+y = pd.read_csv("spam_ham_emails_preprocessing/labels.csv")["label"]
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
-# Logging ke MLflow (dan otomatis ke DagsHub)
 with mlflow.start_run():
     print("▶️ Training model...")
 
@@ -40,6 +35,5 @@ with mlflow.start_run():
     acc = accuracy_score(y_test, model.predict(X_test))
     print("✅ Done. Akurasi:", acc)
 
-    # (Opsional) Manual logging tambahan
     mlflow.log_metric("custom_accuracy", acc)
     mlflow.log_param("model_type", "LogisticRegression")
