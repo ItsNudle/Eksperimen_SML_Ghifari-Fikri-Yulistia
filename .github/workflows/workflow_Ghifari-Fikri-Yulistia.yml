@@ -5,7 +5,7 @@ on:
     branches: [ "main" ]
     paths:
       - preprocessing/**
-      - spam ham emails_raw/**
+      - spam_ham_emails_raw/**
   workflow_dispatch:
 
 jobs:
