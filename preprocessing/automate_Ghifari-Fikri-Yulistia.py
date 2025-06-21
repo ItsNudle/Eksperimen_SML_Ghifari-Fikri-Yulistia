@@ -43,7 +43,7 @@ if __name__ == "__main__":
 
     df = pd.read_csv(input_path)
 
-    x_seq, y, X_tfidf, tokenizer, vectorizer = process_text_data(df)
+    x_sequences, y, X_tfidf, tokenizer, vectorizer = process_text_data(df)
 
     pd.DataFrame({'label': y}).to_csv(os.path.join(output_path, "labels.csv"), index=False)
     pd.DataFrame(X_tfidf.toarray()).to_csv(os.path.join(output_path, "tfidf.csv"), index=False)
